@@ -30,11 +30,10 @@ cities = []
 def cityreader(cities=[]):
   with open('src\cityreader\cities.csv', newline='') as cities_csv:
     cities_list = csv.reader(cities_csv, delimiter= ',')
+    next(cities_list)
     for city in cities_list:
-      cities.append(City(city[0], city[3], city[4]))
-    
-for city in cities:
-  print(city)
+      cities.append(City(city[0], float(city[3]), float(city[4])))
+  return cities
 
 
   # Implement the functionality to read from the 'cities.csv' file
